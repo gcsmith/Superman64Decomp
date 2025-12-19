@@ -126,7 +126,7 @@ LOOP_UNROLL    =
 
 MIPSISET       = -mips2 -32
 
-INCLUDE_CFLAGS = -I . -I include/libc  -I include/PR -I include -I bin -I src/libultra
+INCLUDE_CFLAGS = -I. -Iinclude -Itools/ultra64/include
 
 ASFLAGS        = -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
 OBJCOPYFLAGS   = -O binary

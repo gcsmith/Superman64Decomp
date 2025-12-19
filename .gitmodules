@@ -16,3 +16,6 @@
 [submodule "tools/Torch"]
 	path = tools/Torch
 	url = https://github.com/HarbourMasters/Torch.git
+[submodule "tools/ultralib"]
+	path = tools/ultralib
+	url = https://github.com/decompals/ultralib.git
