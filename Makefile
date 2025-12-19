@@ -1,5 +1,17 @@
-BASENAME := superman
-VERSION  := us
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
+VERSION ?= us
+BASEROM := baserom.$(VERSION).z64
+TARGET  := superman
+
+VERBOSE ?= 0
+ifneq ($(VERBOSE),0)
+  Q :=
+else
+  Q := @
+endif
 
 # Colors
 
@@ -12,34 +24,47 @@ BLUE    := \033[0;34m
 PINK    := \033[0;35m
 CYAN    := \033[0;36m
 
-# Directories
-ASM_DIRS  := $(shell find asm/ -type d -not -path "asm/nonmatchings/*")
+# ------------------------------------------------------------------------------
+# Inputs
+# ------------------------------------------------------------------------------
+
+ASM_DIRS := $(shell find asm/ -type d -not -path "asm/nonmatchings/*")
+BIN_DIRS := $(shell find bin -type d)
+SRC_DIRS := $(shell find src -type d)
+
+S_FILES := $(foreach dir,$(ASM_DIRS) $(SRC_DIRS),$(wildcard $(dir)/*.s))
+B_FILES := $(foreach dir,$(BIN_DIRS),$(wildcard $(dir)/*.bin))
+C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+
+# ------------------------------------------------------------------------------
+# Outputs
+# ------------------------------------------------------------------------------
 
 BUILD_DIR = build
 
-SRC_DIR   = src
+ROM_BIN   := $(BUILD_DIR)/$(TARGET).$(VERSION).bin
+ROM_ELF   := $(BUILD_DIR)/$(TARGET).$(VERSION).elf
+ROM_Z64   := $(BUILD_DIR)/$(TARGET).$(VERSION).z64
+LD_MAP    := $(BUILD_DIR)/$(TARGET).$(VERSION).map
+LD_SCRIPT := $(TARGET).ld
+
+SRC_DIR = src
 BIN_DIR = bin
 OVL_SRC_DIR   = $(SRC_DIR)/overlays
 OVL_ASSET_DIR = $(BIN_DIR)/overlays
 
-BIN_DIRS  = bin bin/mio0_seg $(OVERLAY_ASSETS_DIRS)
 
 DEFINE_SRC_DIRS  = $(SRC_DIR) $(SRC_DIR)/game $(SRC_DIR)/codeseg $(SRC_DIR)/game/core $(SRC_DIR)/game/audio $(OVERLAY_SRC_DIRS) $(LIBULTRA_SRC_DIRS)
-
-SRC_DIRS      := $(shell find src -type d)
 
 TOOLS_DIR = tools
 
 # Files
 
-S_FILES         = $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
-C_FILES         = $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-BIN_FILES       = $(foreach dir,$(BIN_DIRS),$(wildcard $(dir)/*.bin))
+S_O_FILES := $(foreach file,$(S_FILES:.s=.o),$(BUILD_DIR)/$(file))
+B_O_FILES := $(foreach file,$(B_FILES:.bin=.o),$(BUILD_DIR)/$(file))
+C_O_FILES := $(foreach file,$(C_FILES:.c=.o),$(BUILD_DIR)/$(file))
 
-O_FILES := $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file).o) \
-           $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file).o) \
-           $(foreach file,$(BIN_FILES),$(BUILD_DIR)/$(file).o)
-
+O_FILES := $(C_O_FILES) $(S_O_FILES) $(B_O_FILES)
 
 find-command = $(shell which $(1) 2>/dev/null)
 
@@ -90,9 +115,11 @@ else
         CC       := $(TOOLS_DIR)/ido-static-recomp/build/5.3/out/cc
 endif
 
-SPLAT    = $(TOOLS_DIR)/splat/split.py
+SPLAT       ?= python3 -m splat split
+SPLAT_YAML  ?= $(TARGET).$(VERSION).yaml
+SPLAT_FLAGS ?=
 
-	CRC := @$(TOOLS_DIR)/n64crc build/$(BASENAME).$(VERSION).z64 #Recalculating the CRC
+CRC := $(Q)$(TOOLS_DIR)/n64crc build/$(TARGET).$(VERSION).z64 #Recalculating the CRC
 
 OPT_FLAGS      = -O2
 LOOP_UNROLL    =
@@ -137,11 +164,8 @@ GCC_FLAGS += -G 0 -mno-shared -march=vr4300 -mfix4300 -mabi=32 -mhard-float
 GCC_FLAGS += -mdivide-breaks -fno-stack-protector -fno-common -fno-zero-initialized-in-bss -fno-PIC -mno-abicalls -fno-strict-aliasing -fno-inline-functions -ffreestanding -fwrapv
 GCC_FLAGS += -Wall -Wextra -Wno-missing-braces
 
-TARGET     = $(BUILD_DIR)/$(BASENAME).$(VERSION)
-LD_SCRIPT  = $(BASENAME).ld
-
-LD_FLAGS   = -T $(LD_SCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt -T libultra_undefined_syms.txt -T resolve.txt
-LD_FLAGS  += -Map $(TARGET).map --no-check-sections
+LD_FLAGS   = -T $(LD_SCRIPT) -T undefined_funcs_auto.txt  -T undefined_syms_auto.txt # -T libultra_undefined_syms.txt -T resolve.txt
+LD_FLAGS  += -Map $(LD_MAP) --no-check-sections
 
 ifeq ($(VERSION),us)
 LD_FLAGS_EXTRA  =
@@ -154,13 +178,13 @@ ASM_PROCESSOR_DIR := $(TOOLS_DIR)/asm-processor
 ASM_PROCESSOR      = $(PYTHON) $(ASM_PROCESSOR_DIR)/asm_processor.py
 
 ### Optimisation Overrides
-$(BUILD_DIR)/src/libultra/os/%.c.o: OPT_FLAGS := -O1
-$(BUILD_DIR)/src/libultra/os/audio/%.c.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/os/libc/%.c.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/gu/%.c.o: OPT_FLAGS := -O3
-$(BUILD_DIR)/src/libultra/gu/lookathil.c.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/os/osVirtualtoPhysical.c.o: OPT_FLAGS := -O1
-$(BUILD_DIR)/src/libultra/io/%.c.o: OPT_FLAGS := -O1
+$(BUILD_DIR)/src/libultra/os/%.o: OPT_FLAGS := -O1
+$(BUILD_DIR)/src/libultra/os/audio/%.o: OPT_FLAGS := -O2
+$(BUILD_DIR)/src/libultra/os/libc/%.o: OPT_FLAGS := -O2
+$(BUILD_DIR)/src/libultra/gu/%.o: OPT_FLAGS := -O3
+$(BUILD_DIR)/src/libultra/gu/lookathil.o: OPT_FLAGS := -O2
+$(BUILD_DIR)/src/libultra/os/osVirtualtoPhysical.o: OPT_FLAGS := -O1
+$(BUILD_DIR)/src/libultra/io/%.o: OPT_FLAGS := -O1
 
 ### Targets
 
@@ -175,39 +199,36 @@ dirs:
 
 check: .baserom.$(VERSION).ok
 
-verify: $(TARGET).z64
-	@sha1sum -c wr64.us.sha1
+verify: $(ROM_Z64)
+	$(Q)sha1sum -c wr64.us.sha1
 
-no_verify: $(TARGET).z64
-	@echo "Skipping SHA1SUM check!"
+no_verify: $(ROM_Z64)
+	$(Q)echo "Skipping SHA1SUM check!"
 
 toolchain:
-	@$(MAKE) -s -C $(TOOLS)
+	$(Q)$(MAKE) -s -C $(TOOLS)
 
 assets:
 	rm -r -f torch.hash.yml
-	@echo "Extracting assets from ROM..."
-	@$(TORCH) code $(TARGET).z64 -v
-	@$(TORCH) header $(TARGET).z64
-	@$(TORCH) modding export $(TARGET).z64
+	$(Q)echo "Extracting assets from ROM..."
+	$(Q)$(TORCH) code $(ROM_Z64) -v
+	$(Q)$(TORCH) header $(ROM_Z64)
+	$(Q)$(TORCH) modding export $(ROM_Z64)
 
-splat: $(SPLAT)
+init: tools
+	$(Q)$(MAKE) clean
+	$(Q)make extract
+	$(Q)make -j $(N_THREADS)
 
-init: splat tools
-	@$(MAKE) clean
-	@make extract
-	@make -j $(N_THREADS)
-
-extract: splat tools
+extract: tools
 	rm -rf asm
 	rm -rf build
-	$(PYTHON) $(SPLAT) $(BASENAME).$(VERSION).yaml
-	@$(PYTHON) $(TOOLS_DIR)/mio0_extract.py baserom.$(VERSION).z64
+	$(SPLAT) $(SPLAT_YAML) $(SPLAT_FLAGS)
 
 dependencies: tools
-	@make -C tools
-	@$(PYTHON) -m pip install -r tools/splat/requirements.txt #Install the splat dependencies
-	@$(PYTHON) -m pip install GitPython colour
+	$(Q)make -C tools
+	#$(Q)$(PYTHON) -m pip install -r tools/splat/requirements.txt #Install the splat dependencies
+	#$(Q)$(PYTHON) -m pip install GitPython colour
 
 expected:
 	mkdir -p expected/build
@@ -228,15 +249,15 @@ format:
 
 ### Recipes
 .baserom.$(VERSION).ok: baserom.$(VERSION).z64
-	@echo "$$(cat $(BASENAME).$(VERSION).sha1)  $<" | sha1sum --check
-	@touch $@
+	$(Q)echo "$$(cat $(BASENAME).$(VERSION).sha1)  $<" | sha1sum --check
+	$(Q)touch $@
 
-$(TARGET).elf: dirs $(BASENAME).ld $(BUILD_DIR)/$(LIBULTRA) $(O_FILES) $(LANG_RNC_O_FILES) $(IMAGE_O_FILES)
-	@$(LD) $(LD_FLAGS) $(LD_FLAGS_EXTRA) -o $@
-	@printf "[$(PINK) GNU Linker $(NO_COL)]  $<\n"
+$(ROM_ELF): dirs $(LD_SCRIPT) $(BUILD_DIR)/$(LIBULTRA) $(O_FILES) $(LANG_RNC_O_FILES) $(IMAGE_O_FILES)
+	$(Q)$(LD) $(LD_FLAGS) $(LD_FLAGS_EXTRA) -o $@
+	$(Q)printf "[$(PINK) GNU Linker $(NO_COL)]  $<\n"
 
 ifndef PERMUTER
-$(GLOBAL_ASM_O_FILES): $(BUILD_DIR)/%.c.o: %.c
+$(GLOBAL_ASM_O_FILES): $(BUILD_DIR)/%.o: %.c
 	$(CC_CHECK) $<
 	printf "[$(YELLOW) GCC Syntax check $(NO_COL)] $<\n"
 	$(ASM_PROCESSOR) $(OPT_FLAGS) $< > $(BUILD_DIR)/$<
@@ -247,43 +268,43 @@ $(GLOBAL_ASM_O_FILES): $(BUILD_DIR)/%.c.o: %.c
 endif
 
 # non asm-processor recipe
-$(BUILD_DIR)/%.c.o: %.c
-#	@$(CC_CHECK) $<
-	@$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $<
-	@printf "[$(GREEN) IRIS Development Option 5.3 $(NO_COL)]  $<\n"
+$(BUILD_DIR)/%.o: %.c
+#	$(Q)$(CC_CHECK) $<
+	$(Q)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $<
+	$(Q)printf "[$(GREEN) IRIS Development Option 5.3 $(NO_COL)]  $<\n"
 
 
 
 $(BUILD_DIR)/$(LIBULTRA): $(LIBULTRA)
-	@mkdir -p $$(dirname $@)
-#	@cp $< $@
-#	@$(PYTHON) $(TOOLS_DIR)/set_o32abi_bit.py $@
+	$(Q)mkdir -p $$(dirname $@)
+#	$(Q)cp $< $@
+#	$(Q)$(PYTHON) $(TOOLS_DIR)/set_o32abi_bit.py $@
 
 
 
-$(BUILD_DIR)/%.s.o: %.s
-	@$(AS) $(ASFLAGS) -o $@ $<
-	@printf "[$(GREEN) MIPS GNU Assembler   $(NO_COL)]  $<\n"
+$(BUILD_DIR)/%.o: %.s
+	$(Q)$(AS) $(ASFLAGS) -o $@ $<
+	$(Q)printf "[$(GREEN) MIPS GNU Assembler   $(NO_COL)]  $<\n"
 
-$(BUILD_DIR)/%.bin.o: %.bin
-	@$(LD) -r -b binary -o $@ $<
-	@printf "[$(PINK) MIPS GNU Linker $(NO_COL)]  $<\n"
+$(BUILD_DIR)/%.o: %.bin
+	$(Q)$(LD) -r -b binary -o $@ $<
+	$(Q)printf "[$(PINK) MIPS GNU Linker $(NO_COL)]  $<\n"
 
-$(TARGET).bin: $(TARGET).elf
-	@$(OBJCOPY) $(OBJCOPYFLAGS) $< $@
-	@printf "[$(CYAN) GNU Objcopy $(NO_COL)]  $<\n"
+$(ROM_BIN): $(ROM_ELF)
+	$(Q)$(OBJCOPY) $(OBJCOPYFLAGS) $< $@
+	$(Q)printf "[$(CYAN) GNU Objcopy $(NO_COL)]  $<\n"
 
-$(TARGET).z64: $(TARGET).bin
-	@printf "[$(CYAN) .bin -> .z64 $(NO_COL)] $<\n"
-	@cp build/$(BASENAME).$(VERSION).bin build/$(BASENAME).$(VERSION).z64
-	@printf "[$(GREEN) Calculating CRC $(NO_COL)]  $<\n"
-	@$(CRC)
+$(ROM_Z64): $(ROM_BIN)
+	$(Q)printf "[$(CYAN) .bin -> .z64 $(NO_COL)] $<\n"
+	$(Q)cp $(ROM_BIN) $(ROM_Z64)
+	$(Q)printf "[$(GREEN) Calculating CRC $(NO_COL)]  $<\n"
+	$(Q)$(CRC)
 
 # fake targets for better error handling
 $(SPLAT):
 	$(info Repo cloned without submodules, attempting to fetch them now...)
-	@which git >/dev/null || echo "ERROR: git binary not found on PATH"
-	@which git >/dev/null
+	$(Q)which git >/dev/null || echo "ERROR: git binary not found on PATH"
+	$(Q)which git >/dev/null
 	git submodule update --init --recursive
 
 baserom.$(VERSION).z64:

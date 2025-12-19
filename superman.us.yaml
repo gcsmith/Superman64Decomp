@@ -10,6 +10,7 @@ options:
 
   asm_path: asm
   src_path: src
+  asset_path: bin
   build_path: build
   create_asm_dependencies: True
   asm_emit_size_directive: True
@@ -223,7 +224,6 @@ segments:
       - [0xD4640, asm]
       - [0xD4900, asm]
       - [0xD49B0, asm]
-      - [0xD4A80, asm]
 
   - type: bin
     start: 0xD4BE0
