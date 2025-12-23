@@ -36,6 +36,11 @@
 *.exe
 *.out
 *.app
+*.elf
+*.z64
 
 # debug information files
 *.dwo
+
+# miscellaneous
+*.swp

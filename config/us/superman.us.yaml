@@ -2,9 +2,9 @@ name: Superman (North America)
 sha1: c271db752610c9581e1ba1e9125ea8ecdb56f74f
 options:
   basename: superman
-  target_path: baserom.us.z64
+  target_path: config/us/baserom.us.z64
   elf_path: build/superman.elf
-  base_path: .
+  base_path: ../..
   platform: n64
   compiler: IDO
 
@@ -16,7 +16,7 @@ options:
   asm_emit_size_directive: True
   disasm_unknown: True
 
-  ld_script_path: superman.ld
+  ld_script_path: build/superman.us.ld
   ld_dependencies: True
 
   find_file_boundaries: True
@@ -30,12 +30,13 @@ options:
   # auto_link_sections: [".data", ".rodata", ".bss"]
 
   symbol_addrs_path:
-    - symbol_addrs.txt
+    - config/us/sym/symbol_addrs.txt
+    - config/us/sym/libultra_symbols.txt
   reloc_addrs_path:
-    - reloc_addrs.txt
+    - config/us/sym/reloc_addrs.txt
 
-  undefined_funcs_auto_path: undefined_funcs_auto.txt
-  undefined_syms_auto_path: undefined_syms_auto.txt
+  undefined_funcs_auto_path: build/splat_out/us/undefined_funcs_auto.txt
+  undefined_syms_auto_path: build/splat_out/us/undefined_syms_auto.txt
 
   extensions_path: tools/splat_ext
 
@@ -43,9 +44,10 @@ options:
   # data_string_encoding: ASCII
   rodata_string_guesser_level: 2
   data_string_guesser_level: 2
-  # libultra_symbols: True
-  # hardware_regs: True
-  # gfx_ucode: # one of [f3d, f3db, f3dex, f3dexb, f3dex2]
+  libultra_symbols: True
+  hardware_regs: True
+  gfx_ucode: f3dex
+  migrate_rodata_to_functions: True
 
 segments:
   - name: header
@@ -223,10 +225,9 @@ segments:
       - [0xD4630, asm]
       - [0xD4640, asm]
       - [0xD4900, asm]
-      - [0xD49B0, asm]
 
   - type: bin
-    start: 0xD4BE0
+    start: 0xD49B0
     follows_vram: main
 
   - [0x800000]
