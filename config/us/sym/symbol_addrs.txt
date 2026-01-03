@@ -1,0 +1,5 @@
+
+rspbootTextStart       = 0x800D3DB0; // name_end:rspbootTextEnd
+gspF3DEX_fifoTextStart = 0x800D3E80; // name_end:gspF3DEX_fifoTextEnd
+aspMainTextStart       = 0x800D52B0; // name_end:aspMainTextEnd
+

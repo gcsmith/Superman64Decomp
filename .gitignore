@@ -37,10 +37,19 @@
 *.out
 *.app
 *.elf
+*.rom
+*.n64
 *.z64
+*.eeprom
+
+# Generated directories
+asm/
+bin/
+build/
 
 # debug information files
 *.dwo
 
 # miscellaneous
 *.swp
+
