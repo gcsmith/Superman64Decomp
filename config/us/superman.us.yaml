@@ -225,70 +225,34 @@ segments:
       - [0xD4630, c, game/code_0xD4630]
       - [0xD4640, c, game/code_0xD4640]
       - [0xD4900, c, game/code_0xD4900]
+      - [0xD4930, c, game/code_0xD4930]
+      - [0xD4970, c, game/code_0xD4970]
 
       - [0xD49B0, textbin, rspboot]
       - [0xD4A80, textbin, f3dex]
       - [0xD5EB0, textbin, aspMain]
 
-# - name: codeseg1
-#   type: code
-#   start: 0xE9624
-#   vram: 0x800e8a24
-#   subsegments:
-#     - [0xE9624, c, codeseg1/code_0xE9624]
-#     - [0xE9DD8, c, codeseg1/code_0xE9DD8]
-#     - [0xEA078, c, codeseg1/code_0xEA078]
-#     - [0xEA684, c, codeseg1/code_0xEA684]
-#     - [0xEAA98, c, codeseg1/code_0xEAA98]
-#     - [0xEB710, c, codeseg1/code_0xEB710]
-#     - [0xEC038, c, codeseg1/code_0xEC038]
-#     - [0xEC19C, c, codeseg1/code_0xEC19C]
-#     - [0xED748, c, codeseg1/code_0xED748]
-#     - [0xED8A8, c, codeseg1/code_0xED8A8]
-#     - [0xEE168, c, codeseg1/code_0xEE168]
-#     - [0xEE5A0, c, codeseg1/code_0xEE5A0]
-#     - [0xEE740, c, codeseg1/code_0xEE740]
-#     - [0xEEA7C, c, codeseg1/code_0xEEA7C]
-#     - [0xEEE54, c, codeseg1/code_0xEEE54]
-#     - [0xEF22C, c, codeseg1/code_0xEF22C]
-#     - [0xEFFE0, c, codeseg1/code_0xEFFE0]
-#     - [0xF0BA0, c, codeseg1/code_0xF0BA0]
-#     - [0xF0C40, c, codeseg1/code_0xF0C40]
-#     - [0xF12E8, c, codeseg1/code_0xF12E8]
-#     - [0xF160C, c, codeseg1/code_0xF160C]
-#     - [0xF18A0, c, codeseg1/code_0xF18A0]
-#     - [0xF1B90, c, codeseg1/code_0xF1B90]
-#     - [0xF20E8, c, codeseg1/code_0xF20E8]
-#     - [0xF33B4, c, codeseg1/code_0xF33B4]
-#     - [0xF3500, c, codeseg1/code_0xF3500]
-#     - [0xF35BC, c, codeseg1/code_0xF35BC]
-#     - [0xF3708, c, codeseg1/code_0xF3708]
-#     - [0xF37C4, c, codeseg1/code_0xF37C4]
-#     - [0xF3854, c, codeseg1/code_0xF3854]
+      - [0xD6CD0, data]
 
-#  - name: codeseg2
-#    type: code
-#    start: 0x1c6DD4
-#    vram: 0x801c61d4
-#    subsegments:
-#      - [0x1C6DD4, c, codeseg2/code_0x1C6DD4]
-#      - [0x1C70F8, c, codeseg2/code_0x1C70F8]
-#      - [0x1C73E4, c, codeseg2/code_0x1C73E4]
-#      - [0x1C7668, c, codeseg2/code_0x1C7668]
-#      - [0x1C7A8C, c, codeseg2/code_0x1C7A8C]
-#      - [0x1C7D0C, c, codeseg2/code_0x1C7D0C]
-#      - [0x1C8170, c, codeseg2/code_0x1C8170]
-#      - [0x1C84F4, c, codeseg2/code_0x1C84F4]
-#      - [0x1C87A0, c, codeseg2/code_0x1C87A0]
-#      - [0x1C89BC, c, codeseg2/code_0x1C89BC]
-#      - [0x1C8A9C, c, codeseg2/code_0x1C8A9C]
-#      - [0x1C8BDC, c, codeseg2/code_0x1C8BDC]
-#      - [0x1C8CB0, c, codeseg2/code_0x1C8CB0]
-#      - [0x1C8DD8, c, codeseg2/code_0x1C8DD8]
-#      - [0x1C8E70, c, codeseg2/code_0x1C8E70]
+  - name: codeseg1
+    type: code
+    start: 0xE15F0 # length 00012e4f
+    vram: 0x80147F10
+    subsegments:
+      - [0xE15F0, c, codeseg1/code_0xE15F0]
+      - [0xEB710, c, codeseg1/code_0xEB710]
+      - [0xF3DA0, data, codeseg1/code_0xF3DA0]
 
-  - type: bin
-    start: 0xD6CD0
-    follows_vram: main
+  - name: bin_F4440
+    type: bin
+    start: 0xF4440
+
+  - name: bin_103430
+    type: bin
+    start: 0x103430
+
+  - name: bin_123CD0
+    type: bin
+    start: 0x123CD0
 
   - [0x800000]
