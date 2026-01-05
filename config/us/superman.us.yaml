@@ -102,6 +102,7 @@ segments:
       - [0xBED70, c, game/code_0xBED70]
       - [0xBEEB0, c, game/code_0xBEEB0]
       - [0xBF010, hasm]
+      - [0xBF1D0, hasm]
       - [0xBFAE0, c, game/code_0xBFAE0]
       - [0xBFC30, c, game/code_0xBFC30]
       - [0xBFC70, c, game/code_0xBFC70]
