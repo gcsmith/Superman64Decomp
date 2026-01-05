@@ -89,7 +89,8 @@ LIBULTRA_DIRS := $(shell find tools/ultralib/src -type d -not -path "lib/ultrali
 # Outputs
 # ------------------------------------------------------------------------------
 
-BUILD_DIR = build
+BUILD_DIR := build
+SPLAT_DIR := $(BUILD_DIR)/splat_out
 
 ROM_BIN   := $(BUILD_DIR)/$(BASENAME).$(VERSION).bin
 ROM_ELF   := $(BUILD_DIR)/$(BASENAME).$(VERSION).elf
@@ -142,8 +143,8 @@ LD_FLAGS := -T $(LD_SCRIPT)
 LD_FLAGS += -T config/$(VERSION)/sym/hardware_regs.ld
 LD_FLAGS += -T config/$(VERSION)/sym/pif_syms.ld
 LD_FLAGS += -T config/$(VERSION)/sym/libultra_undefined_syms.txt
-LD_FLAGS += -T build/splat_out/$(VERSION)/undefined_funcs_auto.txt
-LD_FLAGS += -T build/splat_out/$(VERSION)/undefined_syms_auto.txt
+LD_FLAGS += -T $(SPLAT_DIR)/$(VERSION)/undefined_funcs_auto.txt
+LD_FLAGS += -T $(SPLAT_DIR)/$(VERSION)/undefined_syms_auto.txt
 LD_FLAGS += -Map $(LD_MAP) --no-check-sections
 
 ifeq ($(VERSION),us)
@@ -213,13 +214,11 @@ expected:
 	cp -r build/ expected/build/
 
 clean:
-	rm -rf asm
-	rm -rf build
+	rm -rf $(BUILD_DIR)/asm $(BUILD_DIR)/bin $(BUILD_DIR)/src
+	rm -rf $(ROM_BIN) $(ROM_ELF) $(ROM_Z64)
 
 distclean: clean
-	rm -rf asm
-	rm -rf assets
-	rm -rf bin
+	rm -rf $(BUILD_DIR) $(ASM_DIR) $(BIN_DIR)
 	rm -f *auto.txt
 	rm -f *ctx.c*
 
