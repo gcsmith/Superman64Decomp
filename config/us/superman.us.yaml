@@ -236,23 +236,30 @@ segments:
 
   - name: codeseg1
     type: code
-    start: 0xE15F0 # length 00012e4f
+    start: 0xE15F0
     vram: 0x80147F10
     subsegments:
       - [0xE15F0, c, codeseg1/code_0xE15F0]
       - [0xEB710, c, codeseg1/code_0xEB710]
-      - [0xF3DA0, data, codeseg1/code_0xF3DA0]
+      - [0xF3DA0, data]
+#     - [0xF3DB0, .rodata, codeseg1/code_0xE15F0]
+#     - [0xF4220, .rodata, codeseg1/code_0xEB710]
 
   - name: bin_F4440
     type: bin
     start: 0xF4440
 
-  - name: bin_103430
-    type: bin
-    start: 0x103430
+  - name: codeseg2
+    type: code
+    start: 0x1C6C00
+    vram: 0x8026B000
+    subsegments:
+      - [0x1C6C00, c, codeseg2/code_0x1C6C00]
+      - [0x1C9C80, data]
+#     - [0x1C9C90, rodata, codeseg2/code_0x1C6C00]
 
-  - name: bin_123CD0
+  - name: bin_1C9D40
     type: bin
-    start: 0x123CD0
+    start: 0x1C9D40
 
   - [0x800000]
