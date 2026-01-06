@@ -1,0 +1,739 @@
+Last symbol seems complete already
+Symbol { name: "CartRomHandle", address: 2148821728, size: 116, filename: "cartrominit", defined: true, complete: true }
+"CartRomHandle"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+cspgetstate is ambiguous, skipping symbols
+cspplay is ambiguous, skipping symbols
+cspsetbank is ambiguous, skipping symbols
+cspsetseq is ambiguous, skipping symbols
+cspsetvol is ambiguous, skipping symbols
+cspstop is ambiguous, skipping symbols
+getactivequeue is ambiguous, skipping symbols
+getcurrfaultthread is ambiguous, skipping symbols
+Last symbol seems complete already
+Symbol { name: "osClockRate", address: 2148507824, size: 8, filename: "initialize", defined: true, complete: true }
+"osClockRate"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "osClockRate", address: 2148507824, size: 8, filename: "initialize", defined: true, complete: true }
+"osClockRate"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "LeoDiskHandle", address: 2148822016, size: 116, filename: "leodiskinit", defined: true, complete: true }
+"LeoDiskHandle"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+piacs is ambiguous, skipping symbols
+pigettype is ambiguous, skipping symbols
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148817168, size: 4560, filename: "pimgr", defined: false, complete: true }
+"__osPiDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148817168, size: 4560, filename: "pimgr", defined: false, complete: true }
+"__osPiDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148817168, size: 4560, filename: "pimgr", defined: false, complete: true }
+"__osPiDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "osPiRawStartDma", address: 2148450384, size: 0, filename: "pimgr", defined: false, complete: true }
+"__osPiDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "osEPiRawStartDma", address: 2148458480, size: 0, filename: "pimgr", defined: false, complete: true }
+"__osPiDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+seqpgetstate is ambiguous, skipping symbols
+seqpplay is ambiguous, skipping symbols
+seqpsetbank is ambiguous, skipping symbols
+seqpsetseq is ambiguous, skipping symbols
+seqpsetvol is ambiguous, skipping symbols
+seqpstop is ambiguous, skipping symbols
+siacs is ambiguous, skipping symbols
+sirawread is ambiguous, skipping symbols
+sirawwrite is ambiguous, skipping symbols
+sprawread is ambiguous, skipping symbols
+sprawwrite is ambiguous, skipping symbols
+Last symbol seems complete already
+Symbol { name: "__osCurrentTime", address: 2148822192, size: 8, filename: "timerintr", defined: true, complete: true }
+"__osCurrentTime"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+vigetcurrcontext is ambiguous, skipping symbols
+vigetcurrframebuf is ambiguous, skipping symbols
+vigetnextcontext is ambiguous, skipping symbols
+vigetnextframebuf is ambiguous, skipping symbols
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+".bss"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+".bss"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+".bss"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+".bss"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(3)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+"__osViDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+"__osViDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: ".bss", address: 2148822240, size: 4640, filename: "vimgr", defined: false, complete: true }
+"__osViDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "__osViDevMgr", address: 2148512544, size: 5, filename: "vimgr", defined: true, complete: true }
+"__osViDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Last symbol seems complete already
+Symbol { name: "__osViDevMgr", address: 2148512544, size: 5, filename: "vimgr", defined: true, complete: true }
+"__osViDevMgr"
+Relocation { kind: Elf(6), encoding: Generic, size: 0, target: Symbol(SymbolIndex(4)), addend: 0, implicit_addend: true }
+Files found:
+    - [0x1000, asm]
+    - [0xBEAA0, c, sendmesg]
+    - [0xBEBF0, c, pfsfreeblocks]
+    - [0xBED40, c, sndpdelete]
+    - [0xBED70, c, recvmesg]
+    - [0xBEEB0, c, sl]
+    - [0xBEF70, c, scale]
+    - [0xBF010, c, sinf]
+    - [0xBF1D0, hasm, exceptasm]
+    - [0xBFAE0, c, thread]
+    - [0xBFB20, c, destroythread]
+    - [0xBFC30, c, cspsetbank]
+    - [0xBFC30, c, seqpsetbank]
+    - [0xBFC70, c, leointerrupt]
+    - [0xC04F0, c, controller]
+    - [0xC0830, asm]
+    - [0xC08F0, c, createthread]
+    - [0xC0A40, c, sndpstop]
+    - [0xC0A90, c, contreaddata]
+    - [0xC0CB0, c, bnkf]
+    - [0xC0F00, c, sndplayer]
+    - [0xC1610, hasm, setintmask]
+    - [0xC16B0, c, synsetvol]
+    - [0xC1750, c, event]
+    - [0xC1A90, c, synfreevoice]
+    - [0xC1B40, c, synallocvoice]
+    - [0xC1D70, c, seqplayer]
+    - [0xC36B0, c, synsetpriority]
+    - [0xC36C0, c, seq]
+    - [0xC3CE0, c, virtualtophysical]
+    - [0xC3D60, hasm, writebackdcache]
+    - [0xC3DE0, c, initialize]
+    - [0xC4070, c, pirawread]
+    - [0xC40D0, c, ll]
+    - [0xC4390, hasm, bzero]
+    - [0xC4430, asm]
+    - [0xC4490, hasm, setsr]
+    - [0xC44A0, hasm, getsr]
+    - [0xC44B0, c, cspstop]
+    - [0xC44B0, c, seqpstop]
+    - [0xC44E0, c, perspective]
+    - [0xC4770, c, synstartvoice]
+    - [0xC4800, c, sirawdma]
+    - [0xC48B0, c, sndpsetfxmix]
+    - [0xC4910, c, viblack]
+    - [0xC4980, c, sirawread]
+    - [0xC4980, c, sprawread]
+    - [0xC49D0, c, sndpplayat]
+    - [0xC4A20, c, pfsreadwritefile]
+    - [0xC4F40, c, mtxutil]
+    - [0xC51B0, c, cspsetseq]
+    - [0xC51B0, c, seqpsetseq]
+    - [0xC51F0, c, sndpsetsound]
+    - [0xC5210, c, motor]
+    - [0xC59B0, c, lookat]
+    - [0xC5CE0, c, pfsallocatefile]
+    - [0xC6490, c, pfsisplug]
+    - [0xC67D0, c, synsetpitch]
+    - [0xC6860, hasm, probetlb]
+    - [0xC6920, c, synsetpan]
+    - [0xC69B0, asm]
+    - [0xC69C0, c, sched]
+    - [0xC7300, c, sptask]
+    - [0xC75F0, asm]
+    - [0xC7630, c, sprawdma]
+    - [0xC76C0, c, sptaskyield]
+    - [0xC76E0, c, visetmode]
+    - [0xC7750, c, contpfs]
+    - [0xC84B0, hasm, getcount]
+    - [0xC84C0, c, sndpsetpitch]
+    - [0xC8520, c, pidma]
+    - [0xC8630, c, lookatref]
+    - [0xC8AC0, c, synthesizer]
+    - [0xC91A0, c, drvrnew]
+    - [0xC9940, c, mainbus]
+    - [0xC9A90, c, reverb]
+    - [0xCA6E0, c, auxbus]
+    - [0xCA7F0, c, env]
+    - [0xCB450, c, resample]
+    - [0xCB750, c, pfssearchfile]
+    - [0xCB910, c, load]
+    - [0xCC460, c, pimgr]
+    - [0xCC5F0, c, cartrominit]
+    - [0xCC6F0, asm]
+    - [0xCC7C0, c, devmgr]
+    - [0xCCC50, c, pirawdma]
+    - [0xCCD30, c, seteventmesg]
+    - [0xCCDA0, hasm, sqrtf]
+    - [0xCCDB0, c, mtxcatl]
+    - [0xCCE70, c, mtxcatf]
+    - [0xCD080, c, random]
+    - [0xCD0B0, c, filter]
+    - [0xCD0D0, c, sprintf]
+    - [0xCD150, c, xprintf]
+    - [0xCDE10, c, cspsetvol]
+    - [0xCDE10, c, seqpsetvol]
+    - [0xCDE50, c, heapinit]
+    - [0xCDE90, c, leodiskinit]
+    - [0xCDF90, c, syncprintf]
+    - [0xCDFD0, c, sndpsetvol]
+    - [0xCE030, c, seqploop]
+    - [0xCE070, c, string]
+    - [0xCE110, c, createmesgqueue]
+    - [0xCE140, hasm, invalicache]
+    - [0xCE1C0, hasm, invaldcache]
+    - [0xCE270, c, synsetfxmix]
+    - [0xCE310, c, save]
+    - [0xCE3D0, c, synremoveplayer]
+    - [0xCE470, c, pfsrepairid]
+    - [0xCE6D0, c, si]
+    - [0xCE700, c, sp]
+    - [0xCE730, c, jammesg]
+    - [0xCE880, c, setthreadpri]
+    - [0xCE960, c, getthreadpri]
+    - [0xCE980, c, viswapbuf]
+    - [0xCE9D0, c, position]
+    - [0xCEBF0, c, epirawdma]
+    - [0xCEE20, c, sptaskyielded]
+    - [0xCEEA0, c, sndpdeallocate]
+    - [0xCEEF0, c, gettime]
+    - [0xCEF80, c, timerintr]
+    - [0xCF380, c, rotate]
+    - [0xCF570, c, setglobalintmask]
+    - [0xCF5C0, c, aisetfreq]
+    - [0xCF720, c, crc]
+    - [0xCF8A0, c, normalize]
+    - [0xCF930, hasm, setcompare]
+    - [0xCF940, c, copy] # ?
+    - [0xCF9C0, hasm, bcopy]
+    - [0xCFCD0, c, resetglobalintmask]
+    - [0xCFD30, c, pfsdeletefile]
+    - [0xD0350, hasm, interrupt]
+    - [0xD0390, c, vi]
+    - [0xD04D0, c, viswapcontext]
+    - [0xD0830, c, pigetcmdq]
+    - [0xD0860, c, cosf]
+    - [0xD09D0, c, visetspecial]
+    - [0xD0B90, c, visetevent]
+    - [0xD0C00, c, sndpsetpan]
+    - [0xD0C60, c, synaddplayer]
+    - [0xD0CB0, c, pfsnumfiles]
+    - [0xD0E00, c, cspgetstate]
+    - [0xD0E00, c, seqpgetstate]
+    - [0xD0E10, c, sndpgetstate]
+    - [0xD0E30, hasm, setfpccsr]
+    - [0xD0E40, c, pfsfilestate]
+    - [0xD1130, c, pfsinitpak]
+    - [0xD13D0, c, pfsgetstatus]
+    - [0xD1610, c, pfschecker]
+    - [0xD2070, c, aigetlen]
+    - [0xD2080, c, cspplay]
+    - [0xD2080, c, seqpplay]
+    - [0xD20B0, c, pfsgetlabel]
+    - [0xD2170, c, epirawread]
+    - [0xD2310, hasm, maptlbrdb]
+    - [0xD2370, c, yieldthread]
+    - [0xD23C0, c, translate]
+    - [0xD2460, c, cents2ratio]
+    - [0xD24B0, c, synstartvoiceparam]
+    - [0xD25A0, c, contramwrite]
+    - [0xD2900, c, epirawwrite]
+    - [0xD2A90, c, settimer]
+    - [0xD2B70, c, xldtob]
+    - [0xD3630, c, ldiv]
+    - [0xD37C0, c, xlitob]
+    - [0xD3A60, c, sirawwrite]
+    - [0xD3A60, c, sprawwrite]
+    - [0xD3AB0, c, dpsetnextbuf]
+    - [0xD3B60, c, dp]
+    - [0xD3B90, c, spsetstat]
+    - [0xD3BA0, c, spgetstat]
+    - [0xD3BB0, hasm, writebackdcacheall]
+    - [0xD3BE0, c, heapalloc]
+    - [0xD3C40, c, contramread]
+    - [0xD3FA0, c, startthread]
+    - [0xD40F0, c, synallocfx]
+    - [0xD4190, asm]
+    - [0xD41A0, c, vimgr]
+    - [0xD4500, c, getactivequeue]
+    - [0xD4500, c, getcurrfaultthread]
+    - [0xD4500, c, pigettype]
+    - [0xD4500, c, vigetcurrcontext]
+    - [0xD4500, c, vigetnextcontext]
+    - [0xD4510, c, sndpallocate]
+    - [0xD45B0, c, synstopvoice]
+    - [0xD4630, c, syndelete]
+    - [0xD4640, c, align]
+    - [0xD4850, c, aisetnextbuf]
+    - [0xD4900, c, ai]
+    - [0xD4930, asm]
+    - [0xD4970, c, spsetpc]
+
+Ambiguous files:
+piacs: [ 0xC0830, 0xCC6F0 ]
+siacs: [ 0xC0830, 0xCC6F0 ]
+vigetcurrframebuf: [ 0xC75F0, 0xD4930 ]
+vigetnextframebuf: [ 0xC75F0, 0xD4930 ]
+
+Files not found:
+aigetstat, atomic, bcmp, clearattribute, color, conteeplongread, conteeplongwrite, conteepprobe, conteepread, conteepwrite, contquery, contreset, contsetch, coss, cseq, cspdelete, cspgetchlvol, cspgetfxmix, cspgetpan, cspgetpriority, cspgetprogram, cspgetseq, cspgettempo, cspgetvol, csplayer, cspsendmidi, cspsetchlvol, cspsetfxmix, cspsetpan, cspsetpriority, cspsetprogram, cspsettempo, dpctr, dpgetstat, dpsetstat, driverominit, epidma, epigettype, epilinkhandle, epiread, epiwrite, free, frustum, getbufcount, getcause, getcompare, getconfig, getfpccsr, getintmask, getmemsize, getnextfaultthread, getsize, getthreadid, gettlbasid, gettlbhi, gettlblo0, gettlblo1, gettlbpagemask, gt, guloadtile_bug, heapcheck, hide, llbit, llcvt, loadtextureblockmipmap, lookathil, lookatstereo, malloc, maptlb, ortho, pfsinit, pfsreformat, pfssetlabel, physicaltovirtual, pi, pigetstat, pirawwrite, piread, piwrite, poslight, poslighthil, region, rotaterpy, seqpdelete, seqpgetchlvol, seqpgetfxmix, seqpgetpan, seqpgetpriority, seqpgetprogram, seqpgetseq, seqpgettempo, seqpgetvol, seqpsendmidi, seqpsetchlvol, seqpsetfxmix, seqpsetpan, seqpsetpriority, seqpsetprogram, seqpsettempo, setattribute, setcause, setconfig, setcount, sethwinterrupt, settime, settlbasid, show, sigetstat, sins, sndpgetsound, sndpplay, sndpsetpriority, sprite, spscale, stopthread, stoptimer, syncputchars, synfreefx, syngetfxref, syngetpriority, synsetfxparam, unmaptlb, unmaptlball, us2dex, us2dex_emu, usprite, vifade, vigetfield, vigetline, vigetmode, vigetstat, virepeatline, visetxscale, visetyscale
+
+Symbols:
+osTvType, 0x80000300, 0x4  (initialize, false)
+osRomBase, 0x80000308, 0x4  (pirawdma, false)
+osResetType, 0x8000030C, 0x4  (initialize, false)
+osAppNMIBuffer, 0x8000031C, 0x0  (initialize, false)
+osSendMesg, 0x800BDEA0, 0x14C  (sendmesg, true)
+osPfsFreeBlocks, 0x800BDFF0, 0x14C  (pfsfreeblocks, true)
+alSndpDelete, 0x800BE140, 0x28  (sndpdelete, true)
+osRecvMesg, 0x800BE170, 0x138  (recvmesg, true)
+alUnlink, 0x800BE2B0, 0x30  (sl, true)
+alLink, 0x800BE2E0, 0x24  (sl, true)
+alClose, 0x800BE304, 0x38  (sl, true)
+alInit, 0x800BE33C, 0x34  (sl, true)
+guScaleF, 0x800BE370, 0x54  (scale, true)
+guScale, 0x800BE3C4, 0x48  (scale, true)
+__sinf, 0x800BE410, 0x1C0  (sinf, true)
+sinf, 0x800BE410, 0x0  (align, false)
+__osExceptionPreamble, 0x800BE5D0, 0x10  (exceptasm, true)
+__osException, 0x800BE5E0, 0x534  (exceptasm, true)
+send_mesg, 0x800BEB14, 0xB4  (exceptasm, true)
+handle_CpU, 0x800BEBC8, 0x34  (exceptasm, true)
+__osEnqueueAndYield, 0x800BEBFC, 0x100  (exceptasm, true)
+__osEnqueueThread, 0x800BECFC, 0x48  (exceptasm, true)
+__osPopThread, 0x800BED44, 0x10  (exceptasm, true)
+__osDispatchThread, 0x800BED54, 0x17C  (exceptasm, true)
+__osCleanupThread, 0x800BEED0, 0x8  (exceptasm, true)
+__osDequeueThread, 0x800BEEE0, 0x40  (thread, true)
+osDestroyThread, 0x800BEF20, 0x104  (destroythread, true)
+__osLeoInterrupt, 0x800BF070, 0x6A4  (leointerrupt, true)
+.text, 0x800BF56B, 0x880  (leointerrupt, false)
+.text, 0x800BF619, 0x880  (leointerrupt, false)
+osContInit, 0x800BF8F0, 0x170  (controller, true)
+__osContGetInitData, 0x800BFA60, 0xD0  (controller, true)
+__osPackRequestData, 0x800BFB30, 0xF4  (controller, true)
+__osSiCreateAccessQueue, 0x800BFC30, 0x0  (controller, false)
+__osSiGetAccess, 0x800BFC80, 0x0  (contramread, false)
+__osSiRelAccess, 0x800BFCC4, 0x0  (contramread, false)
+osCreateThread, 0x800BFCF0, 0x144  (createthread, true)
+alSndpStop, 0x800BFE40, 0x4C  (sndpstop, true)
+osContStartReadData, 0x800BFE90, 0x8C  (contreaddata, true)
+osContGetReadData, 0x800BFF1C, 0xA8  (contreaddata, true)
+.text, 0x800BFF77, 0x220  (contreaddata, false)
+.text, 0x800C00BC, 0x250  (bnkf, false)
+alBnkfNew, 0x800C01B4, 0x104  (bnkf, true)
+alSeqFileNew, 0x800C02B8, 0x40  (bnkf, true)
+.text, 0x800C0300, 0x710  (sndplayer, false)
+alSndpNew, 0x800C08D4, 0x134  (sndplayer, true)
+osSetIntMask, 0x800C0A10, 0xA0  (setintmask, true)
+alSynSetVol, 0x800C0AB0, 0x9C  (synsetvol, true)
+alEvtqFlushType, 0x800C0B50, 0xAC  (event, true)
+alEvtqFlush, 0x800C0BFC, 0x70  (event, true)
+alEvtqPostEvent, 0x800C0C6C, 0x124  (event, true)
+alEvtqNextEvent, 0x800C0D90, 0x8C  (event, true)
+alEvtqNew, 0x800C0E1C, 0x74  (event, true)
+alSynFreeVoice, 0x800C0E90, 0xB0  (synfreevoice, true)
+_allocatePVoice, 0x800C0F40, 0xE8  (synallocvoice, true)
+alSynAllocVoice, 0x800C1028, 0x140  (synallocvoice, true)
+__setInstChanState, 0x800C1170, 0x54  (seqplayer, true)
+__resetPerfChanState, 0x800C11C4, 0x80  (seqplayer, true)
+__initFromBank, 0x800C1244, 0xB4  (seqplayer, true)
+__vsDelta, 0x800C1300, 0x24  (seqplayer, true)
+__vsVol, 0x800C1324, 0x88  (seqplayer, true)
+__seqpReleaseVoice, 0x800C13AC, 0x12C  (seqplayer, true)
+__voiceNeedsNoteKill, 0x800C14D8, 0xA8  (seqplayer, true)
+.text, 0x800C1575, 0x1940  (seqplayer, false)
+__unmapVoice, 0x800C1580, 0x70  (seqplayer, true)
+__postNextSeqEvent, 0x800C15F0, 0xDC  (seqplayer, true)
+__vsPan, 0x800C1744, 0x48  (seqplayer, true)
+.text, 0x800C176D, 0x1940  (seqplayer, false)
+__lookupVoice, 0x800C178C, 0x74  (seqplayer, true)
+__mapVoice, 0x800C1800, 0x70  (seqplayer, true)
+__lookupSoundQuick, 0x800C1870, 0xFC  (seqplayer, true)
+__seqpStopOsc, 0x800C27B0, 0x104  (seqplayer, true)
+__initChanState, 0x800C28B4, 0x70  (seqplayer, true)
+alSeqpNew, 0x800C2924, 0x180  (seqplayer, true)
+alSynSetPriority, 0x800C2AB0, 0x10  (synsetpriority, true)
+alSeqGetLoc, 0x800C2AC0, 0x1C  (seq, true)
+alSeqSetLoc, 0x800C2ADC, 0x1C  (seq, true)
+.text, 0x800C2AF6, 0x620  (seq, false)
+alSeqGetTicks, 0x800C2AF8, 0x8  (seq, true)
+alSeqNextEvent, 0x800C2B54, 0x184  (seq, true)
+alSeqNewMarker, 0x800C2CD8, 0x120  (seq, true)
+alSeqSecToTicks, 0x800C2DF8, 0xE4  (seq, true)
+.text, 0x800C2E56, 0x620  (seq, false)
+.text, 0x800C2E92, 0x620  (seq, false)
+alSeqTicksToSec, 0x800C2EDC, 0x54  (seq, true)
+__alSeqNextDelta, 0x800C2F30, 0x58  (seq, true)
+alSeqNew, 0x800C3008, 0xD8  (seq, true)
+osVirtualToPhysical, 0x800C30E0, 0x7C  (virtualtophysical, true)
+osWritebackDCache, 0x800C3160, 0x74  (writebackdcache, true)
+osInitialize, 0x800C31E0, 0x28C  (initialize, true)
+osPiRawReadIo, 0x800C3470, 0x54  (pirawread, true)
+__ull_rshift, 0x800C34D0, 0x2C  (ll, true)
+__ull_rem, 0x800C34FC, 0x3C  (ll, true)
+__ull_div, 0x800C3538, 0x3C  (ll, true)
+__ll_lshift, 0x800C3574, 0x2C  (ll, true)
+__ll_rem, 0x800C35A0, 0x3C  (ll, true)
+__ll_div, 0x800C35DC, 0x5C  (ll, true)
+__ll_mul, 0x800C3638, 0x30  (ll, true)
+__ull_divremi, 0x800C3668, 0x60  (ll, true)
+__ll_mod, 0x800C36C8, 0x9C  (ll, true)
+__ll_rshift, 0x800C3764, 0x2C  (ll, true)
+bzero, 0x800C3790, 0x0  (bzero, true)
+__osSetSR, 0x800C3890, 0x10  (setsr, true)
+__osGetSR, 0x800C38A0, 0xC  (getsr, true)
+guPerspectiveF, 0x800C38E0, 0x230  (perspective, true)
+guPerspective, 0x800C3B10, 0x58  (perspective, true)
+alSynStartVoice, 0x800C3B70, 0x8C  (synstartvoice, true)
+__osSiRawStartDma, 0x800C3C00, 0xAC  (sirawdma, true)
+alSndpSetFXMix, 0x800C3CB0, 0x58  (sndpsetfxmix, true)
+osViBlack, 0x800C3D10, 0x70  (viblack, true)
+__osSiRawReadIo, 0x800C3D80, 0x0  (initialize, false)
+alSndpPlayAt, 0x800C3DD0, 0x48  (sndpplayat, true)
+.text, 0x800C3E20, 0x520  (pfsreadwritefile, false)
+osPfsReadWriteFile, 0x800C3F1C, 0x420  (pfsreadwritefile, true)
+guMtxF2L, 0x800C4340, 0x100  (mtxutil, true)
+guMtxIdentF, 0x800C4440, 0x88  (mtxutil, true)
+guMtxIdent, 0x800C44C8, 0x30  (mtxutil, true)
+guMtxL2F, 0x800C44F8, 0xB4  (mtxutil, true)
+alSndpSetSound, 0x800C45F0, 0x14  (sndpsetsound, true)
+osMotorStop, 0x800C4610, 0x1A0  (motor, true)
+osMotorStart, 0x800C47B0, 0x1A0  (motor, true)
+.text, 0x800C4880, 0x7A0  (motor, false)
+osMotorInit, 0x800C4ACC, 0x2DC  (motor, true)
+guLookAtF, 0x800C4DB0, 0x2B8  (lookat, true)
+guLookAt, 0x800C5068, 0x78  (lookat, true)
+osPfsAllocateFile, 0x800C50E0, 0x484  (pfsallocatefile, true)
+__osPfsDeclearPage, 0x800C5564, 0x264  (pfsallocatefile, true)
+.text, 0x800C560E, 0x7B0  (pfsallocatefile, false)
+osPfsIsPlug, 0x800C5890, 0x1A0  (pfsisplug, true)
+__osPfsRequestData, 0x800C5A30, 0xD0  (pfsisplug, true)
+__osPfsGetInitData, 0x800C5B00, 0xD0  (pfsisplug, true)
+alSynSetPitch, 0x800C5BD0, 0x84  (synsetpitch, true)
+__osProbeTLB, 0x800C5C60, 0xB8  (probetlb, true)
+alSynSetPan, 0x800C5D20, 0x84  (synsetpan, true)
+__scTaskReady, 0x800C5DC0, 0x50  (sched, true)
+.text, 0x800C5DFC, 0x940  (sched, false)
+.text, 0x800C5E74, 0x940  (sched, false)
+.text, 0x800C5FDF, 0x940  (sched, false)
+.text, 0x800C6063, 0x940  (sched, false)
+osScGetCmdQ, 0x800C64F0, 0x8  (sched, true)
+osScRemoveClient, 0x800C64F8, 0x88  (sched, true)
+osScAddClient, 0x800C6580, 0x50  (sched, true)
+osCreateScheduler, 0x800C65D0, 0x12C  (sched, true)
+.text, 0x800C6700, 0x2F0  (sptask, false)
+osSpTaskLoad, 0x800C681C, 0x190  (sptask, true)
+osSpTaskStartGo, 0x800C69AC, 0x40  (sptask, true)
+osViGetNextFramebuffer, 0x800C69F0, 0x0  (sched, false)
+__osSpRawStartDma, 0x800C6A30, 0x8C  (sprawdma, true)
+osSpTaskYield, 0x800C6AC0, 0x20  (sptaskyield, true)
+osViSetMode, 0x800C6AE0, 0x68  (visetmode, true)
+__osSumcalc, 0x800C6B50, 0x5C  (contpfs, true)
+__osIdCheckSum, 0x800C6BAC, 0x68  (contpfs, true)
+__osRepairPackId, 0x800C6C14, 0x418  (contpfs, true)
+__osCheckPackId, 0x800C702C, 0x198  (contpfs, true)
+__osGetId, 0x800C71C4, 0x25C  (contpfs, true)
+__osCheckId, 0x800C7420, 0xFC  (contpfs, true)
+__osPfsRWInode, 0x800C751C, 0x320  (contpfs, true)
+__osPfsSelectBank, 0x800C783C, 0x6C  (contpfs, true)
+osGetCount, 0x800C78B0, 0xC  (getcount, true)
+alSndpSetPitch, 0x800C78C0, 0x54  (sndpsetpitch, true)
+osPiStartDma, 0x800C7920, 0x10C  (pidma, true)
+guLookAtReflectF, 0x800C7A30, 0x40C  (lookatref, true)
+guLookAtReflect, 0x800C7E3C, 0x78  (lookatref, true)
+_timeToSamples, 0x800C7EC8, 0x58  (synthesizer, true)
+_freePVoice, 0x800C7F20, 0x38  (synthesizer, true)
+_collectPVoices, 0x800C7F58, 0x60  (synthesizer, true)
+__freeParam, 0x800C7FB8, 0x18  (synthesizer, true)
+__allocParam, 0x800C7FD0, 0x30  (synthesizer, true)
+alAudioFrame, 0x800C8008, 0x298  (synthesizer, true)
+alSynNew, 0x800C82A0, 0x300  (synthesizer, true)
+alSaveNew, 0x800C85A0, 0x44  (drvrnew, true)
+alMainBusNew, 0x800C85E4, 0x54  (drvrnew, true)
+alAuxBusNew, 0x800C8638, 0x54  (drvrnew, true)
+alResampleNew, 0x800C868C, 0x88  (drvrnew, true)
+alLoadNew, 0x800C8714, 0xA8  (drvrnew, true)
+alEnvmixerNew, 0x800C87BC, 0xA4  (drvrnew, true)
+init_lpfilter, 0x800C8860, 0xA0  (drvrnew, true)
+alFxNew, 0x800C8900, 0x43C  (drvrnew, true)
+alMainBusParam, 0x800C8D40, 0x30  (mainbus, true)
+alMainBusPull, 0x800C8D70, 0x120  (mainbus, true)
+_doModFunc, 0x800C8E90, 0xA8  (reverb, true)
+_filterBuffer, 0x800C8F38, 0xB8  (reverb, true)
+_saveBuffer, 0x800C8FF0, 0x188  (reverb, true)
+_loadBuffer, 0x800C9178, 0x18C  (reverb, true)
+_loadOutputBuffer, 0x800C9304, 0x224  (reverb, true)
+alFxParamHdl, 0x800C9528, 0x25C  (reverb, true)
+alFxParam, 0x800C9784, 0x18  (reverb, true)
+alFxPull, 0x800C979C, 0x340  (reverb, true)
+alAuxBusParam, 0x800C9AE0, 0x30  (auxbus, true)
+alAuxBusPull, 0x800C9B10, 0xD8  (auxbus, true)
+_ldexpf, 0x800C9BF0, 0x28  (env, true)
+_frexpf, 0x800C9C18, 0xEC  (env, true)
+alEnvmixerParam, 0x800C9D04, 0xE0  (env, true)
+.text, 0x800C9D67, 0xC60  (env, false)
+.text, 0x800C9EC3, 0xC60  (env, false)
+.text, 0x800CA0B5, 0xC60  (env, false)
+alEnvmixerPull, 0x800CA2FC, 0x548  (env, true)
+alResampleParam, 0x800CA850, 0xEC  (resample, true)
+alResamplePull, 0x800CA93C, 0x208  (resample, true)
+osPfsFindFile, 0x800CAB50, 0x1B4  (pfssearchfile, true)
+alLoadParam, 0x800CAD10, 0x1D4  (load, true)
+alRaw16Pull, 0x800CAEE4, 0x3AC  (load, true)
+.text, 0x800CB130, 0xB50  (load, false)
+alAdpcmPull, 0x800CB3BC, 0x4A0  (load, true)
+osCreatePiManager, 0x800CB860, 0x188  (pimgr, true)
+osCartRomInit, 0x800CB9F0, 0xF4  (cartrominit, true)
+__osPiCreateAccessQueue, 0x800CBAF0, 0x0  (pimgr, false)
+__osDevMgrMain, 0x800CBBC0, 0x490  (devmgr, true)
+osPiRawStartDma, 0x800CC050, 0xE0  (pirawdma, true)
+osSetEventMesg, 0x800CC130, 0x68  (seteventmesg, true)
+sqrtf, 0x800CC1A0, 0x8  (sqrtf, true)
+guMtxXFML, 0x800CC1B0, 0x60  (mtxcatl, true)
+guMtxCatL, 0x800CC210, 0x58  (mtxcatl, true)
+guMtxXFMF, 0x800CC270, 0xA0  (mtxcatf, true)
+guMtxCatF, 0x800CC310, 0x168  (mtxcatf, true)
+guRandom, 0x800CC480, 0x2C  (random, true)
+alFilterNew, 0x800CC4B0, 0x1C  (filter, true)
+sprintf, 0x800CC4F4, 0x58  (sprintf, true)
+.text, 0x800CC550, 0xCC0  (xprintf, false)
+_Printf, 0x800CCBC0, 0x648  (xprintf, true)
+alHeapInit, 0x800CD250, 0x34  (heapinit, true)
+osLeoDiskInit, 0x800CD290, 0x100  (leodiskinit, true)
+rmonPrintf, 0x800CD390, 0x1C  (syncprintf, true)
+osSyncPrintf, 0x800CD3AC, 0x1C  (syncprintf, true)
+alSndpSetVol, 0x800CD3D0, 0x58  (sndpsetvol, true)
+alSeqpLoop, 0x800CD430, 0x3C  (seqploop, true)
+memcpy, 0x800CD470, 0x2C  (string, true)
+strlen, 0x800CD49C, 0x28  (string, true)
+strchr, 0x800CD4C4, 0x40  (string, true)
+osCreateMesgQueue, 0x800CD510, 0x2C  (createmesgqueue, true)
+osInvalICache, 0x800CD540, 0x74  (invalicache, true)
+osInvalDCache, 0x800CD5C0, 0xAC  (invaldcache, true)
+alSynSetFXMix, 0x800CD670, 0x94  (synsetfxmix, true)
+alSaveParam, 0x800CD710, 0x34  (save, true)
+alSavePull, 0x800CD744, 0x8C  (save, true)
+alSynRemovePlayer, 0x800CD7D0, 0x9C  (synremoveplayer, true)
+osPfsRepairId, 0x800CD870, 0x25C  (pfsrepairid, true)
+__osSiDeviceBusy, 0x800CDAD0, 0x2C  (si, true)
+__osSpDeviceBusy, 0x800CDB00, 0x2C  (sp, true)
+osJamMesg, 0x800CDB30, 0x150  (jammesg, true)
+osSetThreadPri, 0x800CDC80, 0xE0  (setthreadpri, true)
+osGetThreadPri, 0x800CDD60, 0x18  (getthreadpri, true)
+osViSwapBuffer, 0x800CDD80, 0x50  (viswapbuf, true)
+guPositionF, 0x800CDDD0, 0x1B0  (position, true)
+guPosition, 0x800CDF80, 0x68  (position, true)
+osEPiRawStartDma, 0x800CDFF0, 0x224  (epirawdma, true)
+osSpTaskYielded, 0x800CE220, 0x80  (sptaskyielded, true)
+alSndpDeallocate, 0x800CE2A0, 0x50  (sndpdeallocate, true)
+osGetTime, 0x800CE2F0, 0x84  (gettime, true)
+__osTimerServicesInit, 0x800CE380, 0x8C  (timerintr, true)
+__osTimerInterrupt, 0x800CE40C, 0x178  (timerintr, true)
+__osSetTimerIntr, 0x800CE584, 0x74  (timerintr, true)
+__osInsertTimer, 0x800CE5F8, 0x188  (timerintr, true)
+guRotateF, 0x800CE780, 0x194  (rotate, true)
+guRotate, 0x800CE914, 0x50  (rotate, true)
+__osSetGlobalIntMask, 0x800CE970, 0x4C  (setglobalintmask, true)
+osAiSetFrequency, 0x800CE9C0, 0x160  (aisetfreq, true)
+__osContAddressCrc, 0x800CEB20, 0xB0  (crc, true)
+__osContDataCrc, 0x800CEBD0, 0xD0  (crc, true)
+guNormalize, 0x800CECA0, 0x84  (normalize, true)
+__osSetCompare, 0x800CED30, 0xC  (setcompare, true)
+alCopy, 0x800CED40, 0x74  (copy, true)
+bcopy, 0x800CEDC0, 0x0  (bcopy, true)
+__osResetGlobalIntMask, 0x800CF0D0, 0x58  (resetglobalintmask, true)
+osPfsDeleteFile, 0x800CF130, 0x2E0  (pfsdeletefile, true)
+__osPfsReleasePages, 0x800CF410, 0x248  (pfsdeletefile, true)
+__osBlockSum, 0x800CF658, 0xF0  (pfsdeletefile, true)
+__osDisableInt, 0x800CF750, 0x20  (interrupt, true)
+__osRestoreInt, 0x800CF770, 0x1C  (interrupt, true)
+__osViInit, 0x800CF790, 0x13C  (vi, true)
+__osViSwapContext, 0x800CF8D0, 0x35C  (viswapcontext, true)
+osPiGetCmdQueue, 0x800CFC30, 0x28  (pigetcmdq, true)
+__cosf, 0x800CFC60, 0x168  (cosf, true)
+cosf, 0x800CFC60, 0x0  (align, false)
+osViSetSpecialFeatures, 0x800CFDD0, 0x1B8  (visetspecial, true)
+osViSetEvent, 0x800CFF90, 0x6C  (visetevent, true)
+alSndpSetPan, 0x800D0000, 0x58  (sndpsetpan, true)
+alSynAddPlayer, 0x800D0060, 0x50  (synaddplayer, true)
+osPfsNumFiles, 0x800D00B0, 0x144  (pfsnumfiles, true)
+alSndpGetState, 0x800D0210, 0x20  (sndpgetstate, true)
+__osSetFpcCsr, 0x800D0230, 0x10  (setfpccsr, true)
+osPfsFileState, 0x800D0240, 0x2F0  (pfsfilestate, true)
+osPfsInitPak, 0x800D0530, 0x294  (pfsinitpak, true)
+__osPfsGetStatus, 0x800D07D0, 0xE4  (pfsgetstatus, true)
+__osPfsRequestOneChannel, 0x800D08B4, 0xC0  (pfsgetstatus, true)
+__osPfsGetOneChannelData, 0x800D0974, 0x9C  (pfsgetstatus, true)
+osPfsChecker, 0x800D0A10, 0x6C4  (pfschecker, true)
+corrupted_init, 0x800D10D4, 0x1B4  (pfschecker, true)
+corrupted, 0x800D1288, 0x1E8  (pfschecker, true)
+osAiGetLength, 0x800D1470, 0xC  (aigetlen, true)
+osPfsGetLabel, 0x800D14B0, 0xB4  (pfsgetlabel, true)
+osEPiRawReadIo, 0x800D1570, 0x194  (epirawread, true)
+osMapTLBRdb, 0x800D1710, 0x58  (maptlbrdb, true)
+osYieldThread, 0x800D1770, 0x4C  (yieldthread, true)
+guTranslateF, 0x800D17C0, 0x48  (translate, true)
+guTranslate, 0x800D1808, 0x54  (translate, true)
+alCents2Ratio, 0x800D1860, 0x50  (cents2ratio, true)
+alSynStartVoiceParams, 0x800D18B0, 0xE4  (synstartvoiceparam, true)
+__osContRamWrite, 0x800D19A0, 0x204  (contramwrite, true)
+.text, 0x800D1B23, 0x360  (contramwrite, false)
+osEPiRawWriteIo, 0x800D1D00, 0x190  (epirawwrite, true)
+osSetTimer, 0x800D1E90, 0xD4  (settimer, true)
+.text, 0x800D1F70, 0xAC0  (xldtob, false)
+_Ldtob, 0x800D24E0, 0x54C  (xldtob, true)
+lldiv, 0x800D2A30, 0x100  (ldiv, true)
+ldiv, 0x800D2B30, 0x84  (ldiv, true)
+_Litob, 0x800D2BC0, 0x298  (xlitob, true)
+__osSiRawWriteIo, 0x800D2E60, 0x0  (initialize, false)
+osDpSetNextBuffer, 0x800D2EB0, 0xA8  (dpsetnextbuf, true)
+__osDpDeviceBusy, 0x800D2F60, 0x2C  (dp, true)
+__osSpSetStatus, 0x800D2F90, 0xC  (spsetstat, true)
+__osSpGetStatus, 0x800D2FA0, 0xC  (spgetstat, true)
+osWritebackDCacheAll, 0x800D2FB0, 0x28  (writebackdcacheall, true)
+alHeapDBAlloc, 0x800D2FE0, 0x54  (heapalloc, true)
+__osContRamRead, 0x800D3040, 0x21C  (contramread, true)
+.text, 0x800D31D5, 0x360  (contramread, false)
+osStartThread, 0x800D33A0, 0x150  (startthread, true)
+alSynAllocFX, 0x800D34F0, 0x98  (synallocfx, true)
+osCreateViManager, 0x800D35A0, 0x188  (vimgr, true)
+__osViGetCurrentContext, 0x800D3900, 0x0  (vimgr, false)
+alSndpAllocate, 0x800D3910, 0x9C  (sndpallocate, true)
+alSynStopVoice, 0x800D39B0, 0x78  (synstopvoice, true)
+alSynDelete, 0x800D3A30, 0x8  (syndelete, true)
+guAlignF, 0x800D3A40, 0x1C0  (align, true)
+guAlign, 0x800D3C00, 0x50  (align, true)
+osAiSetNextBuffer, 0x800D3C50, 0xA4  (aisetnextbuf, true)
+__osAiDeviceBusy, 0x800D3D00, 0x30  (ai, true)
+osViGetCurrentFramebuffer, 0x800D3D30, 0x0  (sched, false)
+__osSpSetPc, 0x800D3D70, 0x34  (spsetpc, true)
+__osExceptionPreamble, 0x800DE5D0, 0x0  (initialize, false)
+__osException, 0x800DE5E0, 0x534  (exceptasm, true)
+__osCleanupThread, 0x800DEED0, 0x0  (createthread, false)
+alMainBusParam, 0x800E8D40, 0x0  (drvrnew, false)
+alMainBusPull, 0x800E8D70, 0x0  (drvrnew, false)
+alFxParamHdl, 0x800E9528, 0x0  (drvrnew, false)
+alFxParam, 0x800E9784, 0x0  (drvrnew, false)
+alFxPull, 0x800E979C, 0x0  (drvrnew, false)
+alAuxBusParam, 0x800E9AE0, 0x0  (drvrnew, false)
+alAuxBusPull, 0x800E9B10, 0x0  (drvrnew, false)
+alEnvmixerParam, 0x800E9D04, 0x0  (drvrnew, false)
+alEnvmixerPull, 0x800EA2FC, 0x0  (drvrnew, false)
+alResampleParam, 0x800EA850, 0x0  (drvrnew, false)
+alResamplePull, 0x800EA93C, 0x0  (drvrnew, false)
+alLoadParam, 0x800EAD10, 0x0  (drvrnew, false)
+alRaw16Pull, 0x800EAEE4, 0x3AC  (load, true)
+alAdpcmPull, 0x800EB3BC, 0x4A0  (load, true)
+__osDevMgrMain, 0x800EBBC0, 0x0  (pimgr, false)
+osPiRawStartDma, 0x800EC050, 0x0  (pimgr, false)
+.text, 0x800EC4D0, 0x80  (sprintf, false)
+alSaveParam, 0x800ED710, 0x0  (drvrnew, false)
+alSavePull, 0x800ED744, 0x0  (drvrnew, false)
+osEPiRawStartDma, 0x800EDFF0, 0x0  (pimgr, false)
+alGlobals, 0x800FA040, 0x4  (env, false)
+__osHwIntTable, 0x800FA050, 0x14  (exceptasm, true)
+__osThreadTail, 0x800FA070, 0x8  (createmesgqueue, false)
+__osRunQueue, 0x800FA078, 0x4  (leointerrupt, false)
+__osActiveQueue, 0x800FA07C, 0x4  (createthread, false)
+__osRunningThread, 0x800FA080, 0x4  (destroythread, false)
+__osFaultedThread, 0x800FA084, 0x0  (exceptasm, false)
+__osContinitialized, 0x800FA090, 0x4  (controller, true)
+osClockRate, 0x800FA0B0, 0x8  (initialize, true)
+osViClock, 0x800FA0B8, 0x4  (aisetfreq, false)
+__osShutdown, 0x800FA0BC, 0x0  (exceptasm, false)
+__OSGlobalIntMask, 0x800FA0C0, 0x4  (leointerrupt, false)
+__osMotorinitialized, 0x800FA0D0, 0x10  (motor, true)
+.data, 0x800FA0E0, 0x10  (sched, false)
+osViModeTable, 0x800FA0F0, 0x0  (sched, false)
+.data, 0x800FAE10, 0x190  (drvrnew, false)
+.data, 0x800FAFA0, 0x140  (env, false)
+__osPiDevMgr, 0x800FB0E0, 0x1C  (pidma, false)
+__osPiTable, 0x800FB0FC, 0x4  (cartrominit, false)
+__osCurrentHandle, 0x800FB100, 0x0  (epirawdma, false)
+__osPiAccessQueueEnabled, 0x800FB110, 0x4  (pimgr, false)
+.data, 0x800FB120, 0x10  (random, false)
+.data, 0x800FB130, 0x50  (xprintf, false)
+__osTimerList, 0x800FB180, 0x4  (settimer, false)
+.data, 0x800FB190, 0x70  (vi, false)
+__osViCurr, 0x800FB1F0, 0x4  (vi, true)
+__osViNext, 0x800FB1F4, 0x4  (vi, true)
+osViModePalLan1, 0x800FB200, 0x50  (vi, false)
+osViModeNtscLan1, 0x800FB250, 0x50  (vi, false)
+osViModeMpalLan1, 0x800FB2A0, 0x50  (vi, false)
+.data, 0x800FB2F0, 0x30  (xlitob, false)
+__osViDevMgr, 0x800FB320, 0x5  (vimgr, true)
+.data, 0x800FB340, 0x10  (aisetnextbuf, false)
+.rodata, 0x800FF830, 0x50  (sinf, false)
+.rodata, 0x800FF880, 0x50  (exceptasm, false)
+.rodata, 0x800FF8D0, 0x40  (sndplayer, false)
+__osRcpImTable, 0x800FF910, 0x80  (setintmask, true)
+.rodata, 0x800FF990, 0x240  (seqplayer, false)
+.rodata, 0x800FFBD0, 0x10  (seq, false)
+.rodata, 0x800FFBE0, 0x10  (perspective, false)
+.rodata, 0x800FFBF0, 0x20  (sched, false)
+.rodata, 0x800FFC10, 0x10  (synthesizer, false)
+.rodata, 0x800FFC20, 0x20  (drvrnew, false)
+.rodata, 0x800FFC40, 0x30  (reverb, false)
+.rodata, 0x800FFC70, 0x60  (env, false)
+.rodata, 0x800FFCD0, 0x40  (resample, false)
+.rodata, 0x800FFD10, 0x20  (devmgr, false)
+.rodata, 0x800FFD30, 0x100  (xprintf, false)
+.rodata, 0x800FFE30, 0x10  (position, false)
+.rodata, 0x800FFE40, 0x10  (rotate, false)
+.rodata, 0x800FFE50, 0x50  (cosf, false)
+__libm_qnan_f, 0x800FFEA0, 0x4  (cosf, false)
+.rodata, 0x800FFEB0, 0x10  (cents2ratio, false)
+.rodata, 0x800FFEC0, 0x60  (xldtob, false)
+.rodata, 0x800FFF20, 0x10  (align, false)
+leoDiskStack, 0x801443E0, 0x0  (exceptasm, false)
+__osContPifRam, 0x801453E0, 0x40  (contreaddata, false)
+__osContLastCmd, 0x80145420, 0x1  (contramread, false)
+__osMaxControllers, 0x80145421, 0x1  (contreaddata, false)
+__osEepromTimerQ, 0x80145448, 0x18  (controller, true)
+__osEepromTimerMsg, 0x80145460, 0x4  (controller, true)
+__osFinalrom, 0x80145490, 0x4  (initialize, true)
+__osThreadSave, 0x801454A0, 0x0  (exceptasm, false)
+_MotorStopData, 0x80145650, 0x100  (motor, true)
+_MotorStartData, 0x80145750, 0x100  (motor, true)
+_motorstopbuf, 0x80145850, 0x20  (motor, true)
+_motorstartbuf, 0x80145870, 0x20  (motor, true)
+__osPfsPifRam, 0x80145890, 0x40  (contramread, false)
+.bss, 0x801458D0, 0x40  (sptask, false)
+.bss, 0x80145910, 0x11D0  (pimgr, false)
+CartRomHandle, 0x80146AE0, 0x74  (cartrominit, true)
+__osPiAccessQueue, 0x80146B68, 0x18  (pimgr, false)
+__osEventStateTab, 0x80146B80, 0x78  (seteventmesg, true)
+LeoDiskHandle, 0x80146C00, 0x74  (leodiskinit, true)
+__osDiskHandle, 0x80146C74, 0x4  (leodiskinit, true)
+.bss, 0x80146C80, 0x10  (position, false)
+__osCurrentTime, 0x80146CB0, 0x8  (gettime, false)
+__osBaseCounter, 0x80146CB8, 0x4  (gettime, false)
+__osViIntrCount, 0x80146CBC, 0x4  (timerintr, true)
+__osTimerCounter, 0x80146CC0, 0x4  (timerintr, true)
+.bss, 0x80146CD0, 0x10  (rotate, false)
+.bss, 0x80146CE0, 0x1220  (vimgr, false)
+.bss, 0x80147F00, 0x10  (align, false)
