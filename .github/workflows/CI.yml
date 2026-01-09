@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request_target:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Update Submodules
+      run: git submodule update --init --recursive
+
+    - name: Fetch Secrets
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ secrets.SECRET_REPO }}
+        token: ${{ secrets.SECRET_TOKEN }}
+        path: secret_repo
+
+    - name: Decrypt Secrets
+      working-directory: secret_repo
+      run: ./decrypt_secret.sh && cp baserom.us.z64 ..
+      env:
+          PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
+    
+    - name: Install Packages
+      run: sudo apt-get install -y git make git build-essential binutils-mips-linux-gnu python3 python3-pip
+
+    - name: Build Dependencies
+      run: make dependencies
+
+    - name: Build
+      run: make extract; make
+      
+    - name: Cleanup
+      run: rm -f baserom.us.z64
