@@ -91,6 +91,8 @@ C_O_FILES := $(foreach file,$(C_FILES:.c=.o),$(BUILD_DIR)/$(file))
 
 O_FILES := $(C_O_FILES) $(S_O_FILES) $(B_O_FILES)
 
+DEP_FILES := $(C_O_FILES:.o=.d)
+
 CRC := $(TOOLS_DIR)/n64crc
 
 OPT_FLAGS      = -O2
@@ -98,7 +100,7 @@ LOOP_UNROLL    =
 
 MIPSISET       = -mips2 -32
 
-INCLUDE_CFLAGS = -I. -Iinclude -Isrc -I$(TOOLS_DIR)/ultralib/include
+INCLUDE_CFLAGS = -I. -Iinclude -Isrc -I$(TOOLS_DIR)/ultralib/include/compiler/ido -I$(TOOLS_DIR)/ultralib/include
 
 ASFLAGS        = -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
 OBJCOPYFLAGS   = -O binary
@@ -118,7 +120,7 @@ CFLAGS += $(DEFINES)
 CFLAGS += -woff 624,649,838,712,516,513,596,564,594,709,807
 CFLAGS += $(INCLUDE_CFLAGS)
 
-CHECK_WARNINGS := -Wall -Wextra -Wno-format-security -Wno-unknown-pragmas -Wunused-function -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-int-conversion
+CHECK_WARNINGS := -Wall -Wextra -Wno-format-security -Wno-unknown-pragmas -Wunused-function -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-int-conversion -Wno-multichar
 CC_CHECK := $(GCC_HOST) -fsyntax-only -fno-builtin -fsigned-char -std=gnu90 -m32 $(CHECK_WARNINGS) $(INCLUDE_CFLAGS) $(DEFINES)
 
 LD_FLAGS := -T $(LD_SCRIPT)
@@ -200,7 +202,7 @@ $(ROM_ELF): $(LD_SCRIPT) $(BUILD_DIR)/$(LIBULTRA) $(O_FILES) $(LANG_RNC_O_FILES)
 ifndef PERMUTER
 $(GLOBAL_ASM_O_FILES): $(BUILD_DIR)/%.o: %.c
 	@printf "[$(YELLOW) syntax $(NO_COL)]  $<\n"
-	$(V)$(CC_CHECK) $<
+	$(V)$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
 	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
 	$(V)$(ASM_PROCESSOR) $(OPT_FLAGS) $< > $(BUILD_DIR)/$<
 	$(V)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $(BUILD_DIR)/$<
@@ -211,7 +213,7 @@ endif
 # non asm-processor recipe
 $(BUILD_DIR)/%.o: %.c
 	@printf "[$(YELLOW) syntax $(NO_COL)]  $<\n"
-	$(V)$(CC_CHECK) $<
+	$(V)$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
 	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
 	$(V)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $<
 
@@ -244,6 +246,9 @@ $(SPLAT):
 	@which git >/dev/null || echo "ERROR: git binary not found on PATH"
 	@which git >/dev/null
 	git submodule update --init --recursive
+
+# include compiler generated dependency files
+-include $(DEP_FILES)
 
 ### Settings
 .SECONDARY:
