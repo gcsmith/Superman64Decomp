@@ -18,6 +18,10 @@ options:
 
   ld_script_path: build/superman.us.ld
   ld_dependencies: True
+  ld_sections_allowlist:
+    - .shstrtab
+    - .mdebug
+    - .mdebug.abi32
 
   find_file_boundaries: True
   header_encoding: ASCII
