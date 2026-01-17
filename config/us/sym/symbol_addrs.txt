@@ -3,6 +3,18 @@ rspbootTextStart       = 0x800D3DB0; // name_end:rspbootTextEnd
 gspF3DEX_fifoTextStart = 0x800D3E80; // name_end:gspF3DEX_fifoTextEnd
 aspMainTextStart       = 0x800D52B0; // name_end:aspMainTextEnd
 
+// specify functions which are otherwise merged erroneously
+func_800BBF18 = 0x800BBF18;
+func_800BC36C = 0x800BC36C;
+func_80011E78 = 0x80011E78;
+func_80011ED0 = 0x80011ED0;
+func_80070D18 = 0x80070D18;
+func_80071268 = 0x80071268;
+func_800A8704 = 0x800A8704;
+func_800A8A14 = 0x800A8A14;
+func_800B8F6C = 0x800B8F6C;
+func_800B8FE8 = 0x800B8FE8;
+
 func_80147F10 = 0x80147f10;
 func_8014FF44 = 0x8014ff44;
 func_801506F8 = 0x801506f8;
