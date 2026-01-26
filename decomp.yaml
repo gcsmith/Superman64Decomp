@@ -1,0 +1,55 @@
+name: Superman 64
+repo: https://github.com/gcsmith/Superman64Decomp
+platform: n64
+versions:
+- name: us
+  fullname: US
+  sha1: c271db752610c9581e1ba1e9125ea8ecdb56f74f
+  paths:
+    target: "baserom.us.z64"
+    build_dir: "build"
+    map: "build/superman.us.map"
+    compiled_target: "build/superman.us.z64"
+    elf: "build/superman.us.elf"
+    expected_dir: "expected"
+    asm: "asm"
+    nonmatchings: "asm/nonmatchings"
+
+tools:
+  decompme:
+    preset: 202
+  permuter:
+    decompme_compilers:
+      tools/ido7.1/cc: ido7.1
+      tools/ido5.3/cc: ido5.3
+  mapfile_parser:
+    progress_report:
+      output: build/progress.json
+      check_asm_paths: True
+      report_data: True
+      prefixes_to_trim:
+        - build/lib/
+        - build/src/
+        - build/asm/us/rev0/data/
+        - build/asm/us/rev0
+        - build/asm/jp/rev0/data
+        - build/asm/jp/rev0
+        - build/
+      categories:
+        - id: game
+          name: game
+          paths:
+            - game
+        - id: codeseg1
+          name: codeseg1
+          paths:
+            - codeseg1
+        - id: codeseg2
+          name: codeseg2
+          paths:
+            - codeseg2
+        - id: libultra
+          name: libultra
+          paths:
+            - tools/ultralib
+
