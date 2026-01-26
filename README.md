@@ -1,3 +1,5 @@
+[![Build](https://github.com/gcsmith/Superman64Decomp/actions/workflows/CI.yml/badge.svg)](https://github.com/gcsmith/Superman64Decomp/actions/workflows/CI.yml)
+
 # Superman64Decomp
 
 An early, work-in-progress **matching decompilation** of Superman: The New Superman Adventures. 
