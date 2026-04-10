@@ -51,6 +51,13 @@
 #define ALIGNED16
 #endif
 
+// Force all functions to be exported for recomp builds
+#ifdef RECOMP_BUILD
+#define STATIC_FUNC /* force export */
+#else
+#define STATIC_FUNC static
+#endif
+
 // convert a virtual address to physical.
 #define VIRTUAL_TO_PHYSICAL(addr) ((uintptr_t) (addr) & 0x1FFFFFFF)
 
@@ -68,11 +75,26 @@
 
 #define ARRAY_UNK_SIZE 4
 
-#define SQ(x) (x * x)
+#ifndef MIN
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#endif
 
-#define FABS(x) ((x) >= 0.0f ? (x) : -(x))
+#ifndef MAX
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#endif
+
+#define SQ(x) ((x) * (x))
+
+#define CUBE(x) ((x) * (x) * (x))
+
+#define FABS(x) (0.0f < (x) ? ((x)) : (-(x)))
+
+#define FABS2(x) (0.0f > (x) ? (-(x)) : ((x)))
 
 #define ABS(x) ((x) >= 0 ? (x) : -(x))
+
+// this ABS() doesn't use `>=`, needed in some comparisons
+#define ABS_NOEQ(x) ((x) > 0 ? (x) : -(x))
 
 #define ABS_DEG(x) ((x) %= 360, (x) >= 0 ? (x) : 360 + (x))
 
