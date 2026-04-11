@@ -8,7 +8,6 @@ import tempfile
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, ".."))
-src_dir = root_dir + "src/"
 
 # Project-specific
 CPP_FLAGS = [
@@ -16,12 +15,11 @@ CPP_FLAGS = [
     "-Iinclude",
     "-Isrc",
     "-Itools/ultralib/include",
+    "-Itools/ultralib/include/PR",
     "-D_LANGUAGE_C",
+    "-D__sgi",
     "-DF3DEX_GBI_2",
     "-D_MIPS_SZLONG=32",
-    "-DSCRIPT(...)={}",
-    "-D__attribute__(...)=",
-    "-D__asm__(...)=",
     "-ffreestanding",
     "-DM2CTX",
 ]
