@@ -20,6 +20,8 @@ ifeq ($(VERBOSE),0)
   V := @
 endif
 
+RECOMP_BUILD ?= 0
+
 # ------------------------------------------------------------------------------
 # Toolchain
 # ------------------------------------------------------------------------------
@@ -36,14 +38,29 @@ else
   $(error Unable to detect a suitable MIPS toolchain installed.)
 endif
 
+# Prefer clang as C preprocessor if installed on the system
+ifneq (,$(call find-command,clang))
+  CPP      := clang
+  CPPFLAGS := -E -P -x c -Wno-trigraphs -Wmissing-prototypes -Wstrict-prototypes -D_LANGUAGE_ASSEMBLY
+else
+  CPP      := cpp
+  CPPFLAGS := -P -Wno-trigraphs -Wmissing-prototypes -Wstrict-prototypes -D_LANGUAGE_ASSEMBLY
+endif
+
 TOOLS_DIR = tools
 
 AS       := $(CROSS)as
 LD       := $(CROSS)ld
 OBJCOPY  := $(CROSS)objcopy
 PYTHON   := python3
-GCC_HOST := gcc
 GREP     := grep -rl
+# prefer clang as host compiler if installed on the system.
+# this allows certain 32-bit CC_CHECK flags to work on arm hosts
+ifneq (,$(call find-command,clang))
+  CC_CHECK  := clang
+else
+  CC_CHECK  := gcc
+endif
 
 CC := $(TOOLS_DIR)/ido-static-recomp/build/5.3/out/cc
 
@@ -96,6 +113,9 @@ CRC := $(TOOLS_DIR)/n64crc
 OPT_FLAGS      = -O2
 LOOP_UNROLL    =
 
+ASM_PROC_FLAGS = $(OPT_FLAGS)
+ASM_DEFINES    = -D_LANGUAGE_ASSEMBLY
+
 MIPSISET       = -mips2 -32
 
 INCLUDE_CFLAGS = -I. -Isrc -Iinclude -Iinclude/libultra -Iinclude/libultra/PR -Iinclude/libultra/compiler/ido -Ibin
@@ -109,6 +129,11 @@ GLOBAL_ASM_O_FILES := $(foreach file,$(GLOBAL_ASM_C_FILES:.c=.o),$(BUILD_DIR)/$(
 
 DEFINES := -D_LANGUAGE_C -D_FINALROM -DWIN32 -DNDEBUG -DTARGET_N64 -DCOMPILING_LIBULTRA
 DEFINES += -DVERSION_US
+DEFINES += -DBUILD_VERSION=VERSION_I
+
+ifneq ($(RECOMP_BUILD),0)
+  DEFINES += -DRECOMP_BUILD
+endif
 
 VERIFY = verify
 
@@ -118,8 +143,13 @@ CFLAGS += $(DEFINES)
 CFLAGS += -woff 624,649,838,712,516,513,596,564,594,709,807
 CFLAGS += $(INCLUDE_CFLAGS)
 
+# -m32 has compiler treat code as 32-bit, but only works on clang and x86_64 gcc
+# other architectures may need to rely on clang or a cross-compiler
+ifeq ($(shell getconf LONG_BIT),64)
+  CHECK_ARCH := -m32
+endif
 CHECK_WARNINGS := -Wall -Wextra -Wno-format-security -Wno-unknown-pragmas -Wunused-function -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-int-conversion -Wno-multichar
-CC_CHECK := $(GCC_HOST) -fsyntax-only -fno-builtin -fsigned-char -std=gnu90 -m32 $(CHECK_WARNINGS) $(INCLUDE_CFLAGS) $(DEFINES)
+CHECK_CFLAGS := -fsyntax-only -fno-builtin -fsigned-char -std=gnu90 $(CHECK_ARCH) $(CHECK_WARNINGS) $(INCLUDE_CFLAGS) $(DEFINES)
 
 LD_FLAGS := -T $(LD_SCRIPT)
 LD_FLAGS += -T config/$(VERSION)/sym/hardware_regs.ld
@@ -144,6 +174,8 @@ endif
 # $(BUILD_DIR)/src/libultra/gu/lookathil.o: OPT_FLAGS := -O2
 # $(BUILD_DIR)/src/libultra/os/osVirtualtoPhysical.o: OPT_FLAGS := -O1
 # $(BUILD_DIR)/src/libultra/io/%.o: OPT_FLAGS := -O1
+$(BUILD_DIR)/src/libultra/libc/ll.o: OPT_FLAGS := -O1 -g0
+$(BUILD_DIR)/src/libultra/libc/ll.o: MIPSISET := -mips3 -32
 
 # ------------------------------------------------------------------------------
 # Targets
@@ -165,7 +197,7 @@ no_verify: $(ROM_Z64)
 init: $(TOOLS_DIR)
 	$(MAKE) clean
 	$(MAKE) extract
-	$(MAKE) -j
+	$(MAKE) -j$(nproc)
 
 extract: $(TOOLS_DIR)
 	rm -rf asm
@@ -200,20 +232,29 @@ $(ROM_ELF): $(LD_SCRIPT) $(BUILD_DIR)/$(LIBULTRA) $(O_FILES) $(LANG_RNC_O_FILES)
 ifndef PERMUTER
 $(GLOBAL_ASM_O_FILES): $(BUILD_DIR)/%.o: %.c
 	@printf "[$(YELLOW) syntax $(NO_COL)]  $<\n"
-	$(V)$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
+	$(V)$(CC_CHECK) $(CHECK_CFLAGS) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
 	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
-	$(V)$(ASM_PROCESSOR) $(OPT_FLAGS) $< > $(BUILD_DIR)/$<
+	$(V)$(ASM_PROCESSOR) $(ASM_PROC_FLAGS) $< > $(BUILD_DIR)/$<
 	$(V)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $(BUILD_DIR)/$<
-	$(V)$(ASM_PROCESSOR) $(OPT_FLAGS) $< --post-process $@ \
+	$(V)$(ASM_PROCESSOR) $(ASM_PROC_FLAGS) $< --post-process $@ \
 		--assembler "$(AS) $(ASFLAGS)" --asm-prelude $(ASM_PROCESSOR_DIR)/prelude.inc
 endif
 
 # non asm-processor recipe
 $(BUILD_DIR)/%.o: %.c
 	@printf "[$(YELLOW) syntax $(NO_COL)]  $<\n"
-	$(V)$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
+	$(V)$(CC_CHECK) $(CHECK_CFLAGS) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
 	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
 	$(V)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $<
+
+# Patch ll.o
+$(BUILD_DIR)/src/libultra/libc/ll.o: src/libultra/libc/ll.c
+	@printf "[$(YELLOW) syntax $(NO_COL)]  $<\n"
+	$(V)$(CC_CHECK) $(CHECK_CFLAGS) -MMD -MP -MT $@ -MF $*.d $<
+	@printf "[$(GREEN) ido5.3 $(NO_COL)]  $<\n"
+	$(V)$(CC) -c $(CFLAGS) $(OPT_FLAGS) $(LOOP_UNROLL) $(MIPSISET) -o $@ $<
+	@printf "[$(CYAN) patch $(NO_COL)]  $<\n"
+	$(V)$(PYTHON) $(TOOLS_DIR)/set_o32abi_bit.py $@
 
 $(BUILD_DIR)/$(LIBULTRA): $(LIBULTRA)
 	$(V)mkdir -p $$(dirname $@)
@@ -222,7 +263,7 @@ $(BUILD_DIR)/$(LIBULTRA): $(LIBULTRA)
 
 $(BUILD_DIR)/%.o: %.s
 	@printf "[$(GREEN)   as   $(NO_COL)]  $<\n"
-	$(V)$(AS) $(ASFLAGS) -o $@ $<
+	$(V)$(CPP) $(CPPFLAGS) $(INCLUDE_CFLAGS) -I $(dir $*) $(ASM_DEFINES) $< | $(AS) $(ASFLAGS) $(INCLUDE_CFLAGS) -o $@ -
 
 $(BUILD_DIR)/%.o: %.bin
 	@printf "[$(PINK) linker $(NO_COL)]  $<\n"

@@ -46,10 +46,16 @@
 asm/
 bin/
 build/
+nonmatchings/
 
 # debug information files
 *.dwo
 
 # miscellaneous
 *.swp
-
+.venv/
+src/ultralib
+tools/n64crc
+.vscode/
+ctx.c
+__pycache__/
