@@ -70,8 +70,6 @@ S_FILES := $(foreach dir,$(ASM_DIRS) $(SRC_DIRS),$(wildcard $(dir)/*.s))
 B_FILES := $(foreach dir,$(BIN_DIRS),$(wildcard $(dir)/*.bin))
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 
-LIBULTRA_DIRS := $(shell find $(TOOLS_DIR)/ultralib/src -type d -not -path "lib/ultralib/src/voice")
-
 # ------------------------------------------------------------------------------
 # Outputs
 # ------------------------------------------------------------------------------
@@ -100,7 +98,7 @@ LOOP_UNROLL    =
 
 MIPSISET       = -mips2 -32
 
-INCLUDE_CFLAGS = -I. -Iinclude -Isrc -I$(TOOLS_DIR)/ultralib/include/compiler/ido -I$(TOOLS_DIR)/ultralib/include
+INCLUDE_CFLAGS = -I. -Isrc -Iinclude -Iinclude/libultra -Iinclude/libultra/PR -Iinclude/libultra/compiler/ido -Ibin
 
 ASFLAGS        = -EB -mtune=vr4300 -march=vr4300 -mabi=32 -I include
 OBJCOPYFLAGS   = -O binary
@@ -139,13 +137,13 @@ LD_FLAGS_EXTRA  =
 endif
 
 ### Optimisation Overrides
-$(BUILD_DIR)/src/libultra/os/%.o: OPT_FLAGS := -O1
-$(BUILD_DIR)/src/libultra/os/audio/%.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/os/libc/%.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/gu/%.o: OPT_FLAGS := -O3
-$(BUILD_DIR)/src/libultra/gu/lookathil.o: OPT_FLAGS := -O2
-$(BUILD_DIR)/src/libultra/os/osVirtualtoPhysical.o: OPT_FLAGS := -O1
-$(BUILD_DIR)/src/libultra/io/%.o: OPT_FLAGS := -O1
+# $(BUILD_DIR)/src/libultra/os/%.o: OPT_FLAGS := -O1
+# $(BUILD_DIR)/src/libultra/os/audio/%.o: OPT_FLAGS := -O2
+# $(BUILD_DIR)/src/libultra/os/libc/%.o: OPT_FLAGS := -O2
+# $(BUILD_DIR)/src/libultra/gu/%.o: OPT_FLAGS := -O3
+# $(BUILD_DIR)/src/libultra/gu/lookathil.o: OPT_FLAGS := -O2
+# $(BUILD_DIR)/src/libultra/os/osVirtualtoPhysical.o: OPT_FLAGS := -O1
+# $(BUILD_DIR)/src/libultra/io/%.o: OPT_FLAGS := -O1
 
 # ------------------------------------------------------------------------------
 # Targets
@@ -156,7 +154,7 @@ default: all
 all: dirs $(VERIFY)
 
 dirs:
-	$(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(BIN_DIRS) $(LIBULTRA_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
+	$(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(BIN_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
 
 verify: $(ROM_Z64)
 	$(V)sha1sum -c config/$(VERSION)/$(BASENAME).$(VERSION).sha1
